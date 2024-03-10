@@ -55,7 +55,7 @@ public class Calculator {
 
     public double substraction(double numcontainer[], int inputnum) {
         double storefirstvalue = numcontainer[0];
-        for (int i = 1; i <= inputnum; i++) {
+        for (int i = 1; i < inputnum; i++) {
             storefirstvalue = storefirstvalue - numcontainer[i];
         }
         return storefirstvalue;
@@ -63,7 +63,7 @@ public class Calculator {
 
     public double multiplication(double numcontainer[], int inputnum) {
         double mul = numcontainer[0];
-        for (int i = 1; i <= inputnum; i++) {
+        for (int i = 1; i < inputnum; i++) {
             mul = mul * numcontainer[i];
         }
         return mul;
@@ -71,7 +71,7 @@ public class Calculator {
 
     public double division(double numcontainer[], int inputnum) {
         double div = numcontainer[0];
-        for (int i = 1; i <= inputnum; i++) {
+        for (int i = 1; i < inputnum; i++) {
             if (numcontainer[i] == 0) {
                 System.out.println("Cannot divide by zero.");
                 return Double.NaN; // Return NaN (Not a Number) for division by zero
@@ -94,20 +94,20 @@ public class Calculator {
                 switch (inputOperator) {
                     case "+":
                         double add = addition(numcontainer, inputnum);
-                        System.out.println("Addition is: " + add);
+                        System.out.println("Addition  =" + add);
                         break;
                     case "-":
                         double sub = substraction(numcontainer, inputnum);
-                        System.out.println("Substraction is: " + sub);
+                        System.out.println("Substraction =" + sub);
                         break;
                     case "*":
                         double mul = multiplication(numcontainer, inputnum);
-                        System.out.println("Multiplication is: " + mul);
+                        System.out.println("Multiplication =" + mul);
                         break;
                     case "/":
                         double div = division(numcontainer, inputnum);
                         if (!Double.isNaN(div)) {
-                            System.out.println("Division is: " + div);
+                            System.out.println("Division =" + div);
                         }
                         break;
                     default:
@@ -130,13 +130,13 @@ public class Calculator {
                     sc.nextLine();
                 } else if (ConOrEx.equalsIgnoreCase(exit)) {
                     System.out.println("You have exited successfully.");
-                    dependvar = false;
                     innerloopd = false;
                 } else {
                     System.out.println("Invalid input. Please try again.");
                     continue;
                 }
             } // close inner loop
+            dependvar = false;
         } // close outer loop
     } // close method
 }
